@@ -1,5 +1,41 @@
 angular.module('devmtnTravel').service('mainSrv', function(){
-    this.travelInfo = [{
+
+this.getTravelInfo = function(){
+	return travelInfo
+}
+
+this.getPackage = function(country){
+	return packageInfo.filter(function(package){
+		if(package.id == country.id){
+			return package
+		}
+	})
+}
+this.getPackageById = function(id){
+	return packageInfo.filter(function(package){
+		if(package.id == id){
+			return package
+		}
+	})
+}
+
+this.getPackageByCountry = function(country){
+ 	return packageInfo.filter(function(package){
+		if(package.country == country){
+			return package
+		}
+	})
+} 
+this.getInfoByCountry = function(country){
+ 	return travelInfo.filter(function(location){
+		if(location.country == country){
+			return location
+		}
+	  })
+}	  
+
+
+	var travelInfo = [{
         country: 'United States',
         image: "../img/US.jpg",
         desc: 'The U.S. is a country of 50 states covering a vast swath of North America. Major Atlantic Coast cities are New York, and capital Washington, DC',
@@ -15,7 +51,7 @@ angular.module('devmtnTravel').service('mainSrv', function(){
         desc: "Australia is a country and continent surrounded by the Indian and Pacific oceans. Its major cities – Sydney, Brisbane, Melbourne, Perth, Adelaide – are coastal. Its capital, Canberra, is inland. ",
         price: 1112
     }];
-		this.packageInfo = [{
+	var packageInfo = [{
 				city: "Bordeaux",
 				country: "France",
 				image: "../img/Borduaex.jpg",
